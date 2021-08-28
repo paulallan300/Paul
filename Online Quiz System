@@ -1,0 +1,64 @@
+import //headers class MyFrame{ 
+//Frame Particulars 
+} 
+class MyLoginInfo implements ActionListener{ 
+//class for getting login information 
+public void myTextFields(){ 
+txt2.setBounds(410,70,125,20); //text fields for login information pass3.setEchoChar('*'); //password field 
+b.setLabel("SUBMIT"); //submission button inf1.setBounds(520,5,150,20); //labels 
+} 
+public void actionPerformed(ActionEvent e){ 
+//commands for submit button 
+} 
+} 
+class MyMCQs implements ActionListener{ 
+//class for MCQ's 
+TextArea ques1 = new JTextArea("1. What is the process of defining more 
+T han one method in a class differentiated by method signature?",4,100); // questions 
+JButton b1 = new JButton(); //button for answers submission 
+//reference of inner classes(questions) Q1 q1; 
+MyMCQs(JFrame frm, String id, String pass){ 
+//Importing the questions and buttons 
+} 
+public void in(JTextArea ques, JRadioButton qb1, JRadioButton qb2, 
+JRadioButton qb3, JRadioButton qb4, ButtonGroup bg, JLabel qr){ //question particulars 
+ques.setBounds(10,210,1250,100); ques.setFont(new Font("Verdana", Font.BOLD, 14)); ques.setEditable(false); qb1.setBounds(10,330,275,30); 
+} 
+class Q1{ //question class public void d(){ 
+qno = 1; 
+ques1.setForeground(new Color(0, 128, 128)); 
+qr1.setForeground(new Color(0, 128, 128)); in(ques1, q11, q12, q13 ,q14 , g1, qr1); 
+} 
+} 
+public void rm(JRadioButton qb, JLabel qrl){ //Score calculator if(qb.isSelected()){ 
+score++; 
+qrl.setText("CORRECT ANSWER"); 
+} 
+else{ 
+qrl.setText("INCORRECT!!! CORRECT ANSWER IS OPTION 2"); 
+} 
+} 
+public void actionPerformed(ActionEvent e){ 
+if (e.getActionCommand() == "SUBMIT ANSWERS"){ 
+//score display and setting result labels b1.setLabel("SUBMITTED SUCCESSFULLY"); 
+JLabel rlab = new JLabel("RESULTS:"); try{ //recording in database 
+FileWriter fstream = new FileWriter("OnlineQuizSystem_textfile.txt",true); BufferedWriter out = new BufferedWriter(fstream); 
+out.write("ENTRY---> ID: "+id+" PASS: "+pass+" SCORE: 
+"+score+"\n"); 
+out.close(); 
+}catch(Exception exp){//do nothing} 
+} 
+} 
+if(e.getActionCommand() == "NEXT"){ //cases for next if(qno == 1){ 
+frm.remove(ques1); //removing previous question frm.remove(q11); //removing options frm.remove(qr1); //removing previous result label frm.repaint(); 
+q2.d(); //calling the next 
+} 
+} 
+} 
+class OnlineQuizSystem{ //main class OnlineQuizSystem(){ 
+JFrame frm = new JFrame("OnlineQuizSystem"); new MyFrame(frm); 
+new MyLoginInfo(frm).myTextFields(); frm.setVisible(true); 
+} 
+public static void main (String args[]){ new OnlineQuizSystem(); 
+} 
+}
